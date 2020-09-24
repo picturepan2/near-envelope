@@ -1,8 +1,7 @@
 import 'regenerator-runtime/runtime';
 import React, { Component } from 'react';
 import nearlogo from './assets/gray_near_logo.svg';
-import Drops from './Drops'
-import './App.css';
+import Drops from './Drops';
 
 class App extends Component {
   constructor(props) {
@@ -39,7 +38,7 @@ class App extends Component {
   }
 
   async requestSignIn() {
-    const appTitle = 'NEAR Drop Example';
+    const appTitle = 'NEAR Red Envelope';
     await this.props.wallet.requestSignIn(
       window.nearConfig.contractName,
       appTitle

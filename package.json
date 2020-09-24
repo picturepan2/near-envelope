@@ -1,5 +1,5 @@
 {
-  "name": "rust-linkdrop-app",
+  "name": "near-envelope",
   "version": "0.1.0",
   "license": "(MIT AND Apache-2.0)",
   "scripts": {
@@ -14,7 +14,12 @@
     "babel-jest": "^26.0.0",
     "env-cmd": "^10.1.0",
     "gh-pages": "^2.2.0",
-    "gulp": "^4.0.2",
+    "gulp": "latest",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-csscomb": "latest",
+    "gulp-rename": "latest",
+    "gulp-sass": "latest",
     "jest": "^26.0.0",
     "jest-environment-node": "^26.0.1",
     "near-shell": "^0.24.1",
@@ -29,6 +34,8 @@
     "clipboard-polyfill": "^3.0.1",
     "idb-keyval": "^3.2.0",
     "near-api-js": "^0.29.1",
+    "near-bindgen-as": "^1.2.3",
+    "near-sdk-bindgen": "^2.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "regenerator-runtime": "^0.13.7"
