@@ -1,9 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Router, Switch, Route } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 import App from './App';
+import Claim from './Claim';
 import getConfig from './config.js';
 import { getCurrentUser } from './util/near-util';
 import * as nearApi from 'near-api-js';
+
+const history = createBrowserHistory()
 
 // Initializing contract
 async function initContract() {
@@ -12,7 +17,7 @@ async function initContract() {
     window.keyStore = new nearApi.keyStores.BrowserLocalStorageKeyStore(window.localStorage, 'nearlib:keystore:')
     // console.log(window.keyStore)
     window.near = await nearApi.connect(Object.assign({ deps: { keyStore: window.keyStore } }, window.nearConfig));
-
+    
     window.contractAccount = new nearApi.Account(window.near.connection, window.nearConfig.contractName)
 
     window.getCurrentUser = async () => {
@@ -43,10 +48,19 @@ async function initContract() {
 }
 
 window.nearInitPromise = initContract().then(() => {
-    ReactDOM.render(<App
-        contract={window.contract}
-        wallet={window.walletAccount}
-    />,
+    ReactDOM.render(
+        <React.StrictMode>
+            <Router history={history}>
+                <Switch>
+                    <Route path="/" exact render={(props) => (
+                        <App {...props} wallet={window.walletAccount} contract={window.contract} />
+                    )} />
+                    <Route path="/re/:key" render={(props) => (
+                        <Claim {...props} near={window.near} />
+                    )} />
+                </Switch>
+            </Router>
+        </React.StrictMode>,
         document.getElementById('root')
     );
 }).catch(console.error)

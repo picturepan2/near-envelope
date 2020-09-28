@@ -4,9 +4,8 @@ import * as nearApi from 'near-api-js'
 import * as clipboard from "clipboard-polyfill/text";
 import {
     nearTo, nearToInt, toNear, BOATLOAD_OF_GAS, DROP_GAS, NETWORK_ID, ACCESS_KEY_ALLOWANCE
-} from './util/near-util'
-import { howLongAgo } from './util/util'
-import './Drops.scss';
+} from './util/near-util';
+import { howLongAgo } from './util/util';
 
 const get = (k) => JSON.parse(localStorage.getItem(k) || '[]')
 const set = (k, v) => localStorage.setItem(k, JSON.stringify(v))
@@ -222,11 +221,11 @@ const Drops = (props) => {
                     {
                         activeDrops.map(({ public_key, amount, ts, walletLink }) => <div className="drop" key={public_key}>
                             <p className="funds">{nearTo(amount, 2)} Ⓝ</p>
-                            <p>For public key: {public_key.substring(0, 5)+'...'}</p>
+                            <p>For public key: {public_key}</p>
                                 <p>{ howLongAgo(ts) }</p>
                             <button onClick={async () => {
                                 await clipboard.writeText(walletLink)
-                                alert('Create Near Wallet link copied to clipboard')
+                                alert('Near Wallet link copied to clipboard')
                             }}>Copy Near Wallet Link</button>
                             <br/>
                             <button onClick={() => reclaimDrop(public_key)}>Use Drop</button>
@@ -246,11 +245,11 @@ const Drops = (props) => {
                         {
                             usedDrops.map(({ public_key, amount, ts, walletLink }) => <div className="drop" key={public_key}>
                                 <p className="funds">{nearTo(amount, 2)} Ⓝ</p>
-                                <p>For public key: {public_key.substring(0, 5)+'...'}</p>
+                                <p>For public key: {public_key}</p>
                                 <p>{ howLongAgo(ts) }</p>
                                 <button onClick={async () => {
                                     await clipboard.writeText(walletLink)
-                                    alert('Create Near Wallet link copied to clipboard')
+                                    alert('Near Wallet link copied to clipboard')
                                 }}>Copy Near Wallet Link</button>
                                 <br/>
                                 <button onClick={() => removeDrop(public_key)}>Remove Drop</button>

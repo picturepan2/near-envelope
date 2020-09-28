@@ -81,7 +81,7 @@ class App extends Component {
     return (
       <div className="App-header">
         <div className="image-wrapper">
-          <img className="logo" src={nearlogo} alt="NEAR logo" />
+          <img className="logo" src={nearlogo} alt="NEAR logo" height="60" />
           
         </div>
         <div>
