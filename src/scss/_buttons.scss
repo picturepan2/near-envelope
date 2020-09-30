@@ -21,7 +21,7 @@
   vertical-align: middle;
   white-space: nowrap;
   &:visited {
-    color: $primary-color-dark;
+    color: $gray-color-dark;
   }
   &:focus {
     @include control-shadow();

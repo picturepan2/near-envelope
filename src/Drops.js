@@ -202,6 +202,12 @@ const Drops = (props) => {
                     <button className="btn btn-primary" onClick={() => fundDrop()}>+ Create New NEAR Drop</button>
                 </div>
             </div>
+            <div className="near-tabs">
+                <ul className="tab">
+                    <li className={showUsed?'tab-item':'tab-item active'} onClick={() => setShowUsed(false)}>Active</li>
+                    <li className={showUsed?'tab-item active':'tab-item'} onClick={() => setShowUsed(true)}>Claimed</li>
+                </ul>
+            </div>
             
             {
                 urlDrop && <div className="drop">
@@ -219,14 +225,13 @@ const Drops = (props) => {
                     }
                 </div>
             }
-            { activeDrops.length > 0 && 
+            { !showUsed && 
                 <div className="near-drops">
-                    <h2>Active Drops</h2>
                     {
                         activeDrops.map(({ public_key, amount, ts, walletLink }) => 
                         <div className="near-drop-item" key={public_key}>
                             <div className="drop-item-funds">{nearTo(amount, 2)} <small>Ⓝ</small></div>
-                            <div className="drop-item-status">Unclaimed</div>
+                            <div className="drop-item-status">Active</div>
                             <div className="drop-item-pubkey text-ellipsis text-gray">Public Key: {public_key}</div>
                             <button className="btn btn-sm btn-primary" onClick={async () => {
                                 await clipboard.writeText(walletLink)
@@ -237,15 +242,11 @@ const Drops = (props) => {
                     }
                 </div>
             }
-            { showUsed ?
+            { showUsed && 
                 <>
-                    <div className="drop">
-                        <button className="btn" style={{width: '100%', marginTop: 16}} onClick={() => setShowUsed(false)}>Hide Used Drops</button>
-                    </div>
                     {
                         usedDrops.length > 0 ? 
                         <div className="drop">
-                        <h3>Used Drops</h3>
                         {
                             usedDrops.map(({ public_key, amount, ts, walletLink }) => 
                             <div className="near-drop-item" key={public_key}>
@@ -262,8 +263,6 @@ const Drops = (props) => {
                         </div> : <h3>No Used Drops</h3>
                     }
                 </>
-                :
-                <button className="btn" onClick={() => setShowUsed(true)}>Show Used Drops</button>
             }
         </div>
     )
