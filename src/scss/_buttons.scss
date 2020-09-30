@@ -1,12 +1,14 @@
 // Buttons
 .btn {
+  align-items: center;
   appearance: none;
-  background: transparent;
-  border: $border-width solid $gray-color-dark;
-  border-radius: $border-radius;
+  background: $bg-color-dark;
+  border: $border-width solid $border-color-light;
+  border-radius: 10rem;
+  box-shadow: 0 .1rem 1rem rgba($dark-color, .1);
   color: $gray-color-dark;
   cursor: pointer;
-  display: inline-block;
+  display: inline-flex;
   font-size: $font-size;
   height: $control-size;
   line-height: $line-height;
@@ -18,17 +20,24 @@
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
+  &:visited {
+    color: $primary-color-dark;
+  }
   &:focus {
     @include control-shadow();
   }
   &:focus,
   &:hover {
+    background: $primary-color;
     border-color: $primary-color-dark;
+    color: $light-color;
     text-decoration: none;
   }
   &:active,
   &.active {
+    background: $primary-color-dark;
     border-color: darken($primary-color-dark, 5%);
+    color: $light-color;
     text-decoration: none;
     &.loading {
       &::after {
@@ -49,7 +58,11 @@
   &.btn-primary {
     background: $primary-color;
     border-color: $primary-color-dark;
+    box-shadow: 0 .1rem 1rem rgba($primary-color, .25);
     color: $light-color;
+    &:visited {
+      color: $light-color;
+    }
     &:focus,
     &:hover {
       background: darken($primary-color-dark, 2%);
@@ -83,7 +96,9 @@
   &.btn-link {
     background: transparent;
     border-color: transparent;
+    box-shadow: none;
     color: $link-color;
+    &:visited,
     &:focus,
     &:hover,
     &:active,
@@ -109,6 +124,11 @@
   &.btn-block {
     display: block;
     width: 100%;
+  }
+
+  // Button Block
+  &.btn-rounded {
+    border-radius: 10rem;
   }
 
   // Button Action

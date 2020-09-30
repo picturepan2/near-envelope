@@ -1,6 +1,7 @@
 import 'regenerator-runtime/runtime';
 import React, { Component } from 'react';
 import nearlogo from './assets/gray_near_logo.svg';
+import User from './User';
 import Drops from './Drops';
 
 class App extends Component {
@@ -79,21 +80,33 @@ class App extends Component {
     console.log(state)
 
     return (
-      <div className="App-header">
-        <div className="image-wrapper">
-          <img className="logo" src={nearlogo} alt="NEAR logo" height="60" />
-          
-        </div>
-        <div>
-          { currentUser && <Drops {...{currentUser, updateUser}} />}
-        </div>
-        <div className="login">
-          {this.state.login ? 
-            <div>
-              <button onClick={this.requestSignOut}>Log out</button>
+      <div className="near-container">
+        <div className="near-dapp">
+          <div className="near-dapp-header">
+            <div className="near-logo">
+              <img className="logo" src={nearlogo} alt="NEAR logo" height="40" />
             </div>
-            : <button onClick={this.requestSignIn}>Log in with NEAR</button>}
+            <div className="near-user">
+              { currentUser && <User {...{currentUser, updateUser}} />}
+            </div>
+          </div>
+          <div className="near-dapp-body">
+            <div>
+              { currentUser && <Drops {...{currentUser, updateUser}} />}
+            </div>
+          </div>
+          <div className="near-dapp-footer">
+            <div className="login">
+              {this.state.login ? 
+                <div>
+                  <button className="btn" onClick={this.requestSignOut}>Log out</button>
+                </div>
+                : <button className="btn" onClick={this.requestSignIn}>Log in with NEAR</button>}
+            </div>
+          </div>
         </div>
+        
+        
       </div>
     )
   }

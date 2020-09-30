@@ -5,7 +5,7 @@ $version: "0.5.8";
 $rtl: false !default;
 
 // Core colors
-$primary-color: #262626 !default;
+$primary-color: #E3514C !default;
 $primary-color-dark: darken($primary-color, 3%) !default;
 $primary-color-light: lighten($primary-color, 3%) !default;
 $secondary-color: lighten($primary-color, 37.5%) !default;
@@ -13,16 +13,16 @@ $secondary-color-dark: darken($secondary-color, 3%) !default;
 $secondary-color-light: lighten($secondary-color, 3%) !default;
 
 // Gray colors
-$dark-color: #121212 !default;
+$dark-color: #242424 !default;
 $light-color: #fff !default;
 $gray-color: lighten($dark-color, 55%) !default;
 $gray-color-dark: darken($gray-color, 20%) !default;
 $gray-color-light: lighten($gray-color, 20%) !default;
 
-$border-color: #262626 !default;
-$border-color-dark: darken($border-color, 10%) !default;
-$border-color-light: lighten($border-color, 8%) !default;
-$bg-color: #efefef !default;
+$border-color: #e5e5e5 !default;
+$border-color-dark: darken($border-color, 2%) !default;
+$border-color-light: lighten($border-color, 2%) !default;
+$bg-color: #f8f8f8 !default;
 $bg-color-dark: darken($bg-color, 3%) !default;
 $bg-color-light: lighten($bg-color, 3%) !default;
 
@@ -36,7 +36,7 @@ $code-color: #d73e48 !default;
 $highlight-color: #ffe9b3 !default;
 $body-bg: $bg-color-light !default;
 $body-font-color: lighten($dark-color, 5%) !default;
-$link-color: $light-color !default;
+$link-color: $gray-color-dark !default;
 $link-color-dark: darken($link-color, 10%) !default;
 $link-color-light: lighten($link-color, 10%) !default;
 
@@ -79,15 +79,15 @@ $line-height: 1.2rem !default;
 $layout-spacing: $unit-2 !default;
 $layout-spacing-sm: $unit-1 !default;
 $layout-spacing-lg: $unit-4 !default;
-$border-radius: $unit-1 !default;
+$border-radius: $unit-2 !default;
 $border-width: $unit-o !default;
 $border-width-lg: $unit-h !default;
 $control-size: $unit-9 !default;
 $control-size-sm: $unit-7 !default;
 $control-size-lg: $unit-10 !default;
-$control-padding-x: $unit-2 !default;
-$control-padding-x-sm: $unit-2 * .75 !default;
-$control-padding-x-lg: $unit-2 * 1.5 !default;
+$control-padding-x: $unit-3 !default;
+$control-padding-x-sm: $unit-3 * .75 !default;
+$control-padding-x-lg: $unit-3 * 1.5 !default;
 $control-padding-y: ($control-size - $line-height) / 2 - $border-width !default;
 $control-padding-y-sm: ($control-size-sm - $line-height) / 2 - $border-width !default;
 $control-padding-y-lg: ($control-size-lg - $line-height) / 2 - $border-width !default;

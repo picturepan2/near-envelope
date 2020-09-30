@@ -51,6 +51,131 @@
 
 /*! NEAR.css | MIT License */
 body {
-  
+  background: $bg-color url('../img/dapp-bg.png');
+  overflow: hidden;
+}
+
+.near-container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  padding: .5rem;
+  width: 100vw;
+
+  .near-dapp {
+    background: $light-color;
+    border: $border-color;
+    border-radius: $border-radius;
+    box-shadow: 0 .2rem 1rem rgba($dark-color, .05);
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $size-xs;
+    padding: .5rem 0;
+    width: 100%;
+  }
+
+  .near-dapp-header {
+    display: flex;
+    height: 3rem;
+    justify-content: space-between;
+    padding: .5rem 1rem;
+
+    .near-logo {
+      height: 2rem;
+    }
+
+    .near-user {
+      .btn {
+        max-width: 10rem;
+        padding: 0 .5rem 0 0;
+
+        &:focus,
+        &:hover {
+          .btn-icon {
+            background: $secondary-color;
+          }
+        }
+      }
+
+      .btn-icon {
+        background: $bg-color-light;
+        border-radius: 50%;
+        height: 1.6rem;
+        margin: 0 .25rem 0 .05rem;
+        padding: .3rem;
+        width: 1.6rem;
+      }
+    }
+  }
+
+  .near-dapp-body {
+    height: 100%;
+    overflow-y: auto;
+    padding: .5rem 1rem;
+
+    .near-balance {
+      padding: .5rem;
+      text-align: center;
+
+      .near-balance-title {
+        color: $gray-color-dark;
+        font-size: .7rem;
+      }
+
+      .near-balance-funds {
+        font-size: 2rem;
+        font-weight: 900;
+        line-height: 2rem;
+      }
+
+      .near-balance-actions {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  .near-drop-item {
+    border: .05 solid $bg-color;
+    border-radius: .4rem;
+    box-shadow: 0 .1rem 1rem rgba($dark-color, .05);
+    margin-bottom: 1rem;
+    overflow: hidden;
+    padding: 1rem;
+    position: relative;
+    transition: box-shadow .2s;
+
+    &:hover {
+      box-shadow: 0 .4rem 1rem rgba($dark-color, .1);
+    }
+
+    .drop-item-funds {
+      font-size: 1.6rem;
+      font-weight: 900;
+      line-height: 1.6rem;
+      margin-bottom: .5rem;
+    }
+
+    .drop-item-pubkey {
+      font-size: .6rem;
+      margin-bottom: .5rem;
+    }
+
+    .drop-item-status {
+      background: $secondary-color;
+      color: $primary-color-light;
+      font-size: .6rem;
+      line-height: .8rem;
+      padding: .2rem;
+      position: absolute;
+      right: -2.5rem;
+      top: 1rem;
+      text-align: center;
+      text-transform: uppercase;
+      transform: rotate(45deg);
+      width: 8rem;
+    }
+  }
 }
 

@@ -1,6 +1,6 @@
 import 'regenerator-runtime/runtime';
 import React, { useState, useEffect } from 'react';
-import * as nearApi from 'near-api-js'
+import * as nearApi from 'near-api-js';
 import * as clipboard from "clipboard-polyfill/text";
 import {
     nearTo, nearToInt, toNear, BOATLOAD_OF_GAS, DROP_GAS, NETWORK_ID, ACCESS_KEY_ALLOWANCE
@@ -144,12 +144,13 @@ const Drops = (props) => {
         const newKeyPair = nearApi.KeyPair.fromRandom('ed25519')
         const public_key = newKeyPair.public_key = newKeyPair.publicKey.toString().replace('ed25519:', '')
 
+        // TODO: Make localstorage exportable
         // download keypair if user wants
-        const downloadKey = window.confirm('Download keypair before funding?')
-        if (downloadKey) {
-            const { secretKey, public_key: publicKey } = JSON.parse(JSON.stringify(newKeyPair))
-            downloadFile(public_key + '.txt', JSON.stringify({ publicKey, secretKey }))
-        }
+        // const downloadKey = window.confirm('Download keypair before funding?')
+        // if (downloadKey) {
+        //     const { secretKey, public_key: publicKey } = JSON.parse(JSON.stringify(newKeyPair))
+        //     downloadFile(public_key + '.txt', JSON.stringify({ publicKey, secretKey }))
+        // }
 
         newKeyPair.amount = amount
         newKeyPair.ts = Date.now()
@@ -193,42 +194,45 @@ const Drops = (props) => {
     console.log('USED DROPS', usedDrops)
 
     return (
-        <div className="root">
-            <div>
-                <p>{accountId}</p>
-                <p>Balance: <span className="funds">{nearTo(currentUser.balance, 2)} Ⓝ</span></p>
+        <div>
+            <div className="near-balance">
+                <div className="near-balance-title">Balance</div>
+                <div className="near-balance-funds">{nearTo(currentUser.balance, 2)} <small>Ⓝ</small></div>
+                <div className="near-balance-actions">
+                    <button className="btn btn-primary" onClick={() => fundDrop()}>+ Create New NEAR Drop</button>
+                </div>
             </div>
-            <button onClick={() => fundDrop()}>Create New NEAR Drop</button><br/>
+            
             {
                 urlDrop && <div className="drop">
                     <h2>URL Drop</h2>
                     <p className="funds">{nearTo(urlDrop.amount, 2)} Ⓝ</p>
                     <p>From: {urlDrop.from}</p>
                     { urlDrop.limited ?
-                        <button onClick={() => claimMultisig(urlDrop.amount, urlDrop.key)}>Create Multisig</button>
+                        <button className="btn" onClick={() => claimMultisig(urlDrop.amount, urlDrop.key)}>Create Multisig</button>
                         :
                         <>
-                        <button onClick={() => claimDrop(urlDrop.amount, urlDrop.key)}>Claim Drop</button>
-                        <button onClick={() => claimAccount(urlDrop.amount, urlDrop.key)}>Create Account</button>
-                        <button onClick={() => claimContract(urlDrop.amount, urlDrop.key)}>Create Multisig</button>
+                        <button className="btn" onClick={() => claimDrop(urlDrop.amount, urlDrop.key)}>Claim Drop</button>
+                        <button className="btn" onClick={() => claimAccount(urlDrop.amount, urlDrop.key)}>Create Account</button>
+                        <button className="btn" onClick={() => claimContract(urlDrop.amount, urlDrop.key)}>Create Multisig</button>
                         </>
                     }
                 </div>
             }
             { activeDrops.length > 0 && 
-                <div className="drop">
+                <div className="near-drops">
                     <h2>Active Drops</h2>
                     {
-                        activeDrops.map(({ public_key, amount, ts, walletLink }) => <div className="drop" key={public_key}>
-                            <p className="funds">{nearTo(amount, 2)} Ⓝ</p>
-                            <p>For public key: {public_key}</p>
-                                <p>{ howLongAgo(ts) }</p>
-                            <button onClick={async () => {
+                        activeDrops.map(({ public_key, amount, ts, walletLink }) => 
+                        <div className="near-drop-item" key={public_key}>
+                            <div className="drop-item-funds">{nearTo(amount, 2)} <small>Ⓝ</small></div>
+                            <div className="drop-item-status">Unclaimed</div>
+                            <div className="drop-item-pubkey text-ellipsis text-gray">Public Key: {public_key}</div>
+                            <button className="btn btn-sm btn-primary" onClick={async () => {
                                 await clipboard.writeText(walletLink)
-                                alert('Near Wallet link copied to clipboard')
-                            }}>Copy Near Wallet Link</button>
-                            <br/>
-                            <button onClick={() => reclaimDrop(public_key)}>Use Drop</button>
+                                alert('NEAR 红包链接已经复制到剪贴板')
+                            }}>Copy Link</button>
+                            <button className="btn btn-sm btn-link" onClick={() => reclaimDrop(public_key)}>Use Drop</button>
                         </div>)
                     }
                 </div>
@@ -236,30 +240,30 @@ const Drops = (props) => {
             { showUsed ?
                 <>
                     <div className="drop">
-                        <button style={{width: '100%', marginTop: 16}} onClick={() => setShowUsed(false)}>Hide Used Drops</button>
+                        <button className="btn" style={{width: '100%', marginTop: 16}} onClick={() => setShowUsed(false)}>Hide Used Drops</button>
                     </div>
                     {
                         usedDrops.length > 0 ? 
                         <div className="drop">
                         <h3>Used Drops</h3>
                         {
-                            usedDrops.map(({ public_key, amount, ts, walletLink }) => <div className="drop" key={public_key}>
-                                <p className="funds">{nearTo(amount, 2)} Ⓝ</p>
-                                <p>For public key: {public_key}</p>
-                                <p>{ howLongAgo(ts) }</p>
-                                <button onClick={async () => {
+                            usedDrops.map(({ public_key, amount, ts, walletLink }) => 
+                            <div className="near-drop-item" key={public_key}>
+                                <div className="drop-item-funds">{nearTo(amount, 2)} <small>Ⓝ</small></div>
+                                <div className="drop-item-status">Claimed</div>
+                                <div className="drop-item-pubkey text-ellipsis text-gray">Public Key: {public_key}</div>
+                                <button className="btn btn-sm btn-primary" onClick={async () => {
                                     await clipboard.writeText(walletLink)
                                     alert('Near Wallet link copied to clipboard')
-                                }}>Copy Near Wallet Link</button>
-                                <br/>
-                                <button onClick={() => removeDrop(public_key)}>Remove Drop</button>
+                                }}>Copy Link</button>
+                                <button className="btn btn-sm btn-link" onClick={() => removeDrop(public_key)}>Remove Drop</button>
                             </div>)
                         }
                         </div> : <h3>No Used Drops</h3>
                     }
                 </>
                 :
-                <button onClick={() => setShowUsed(true)}>Show Used Drops</button>
+                <button className="btn" onClick={() => setShowUsed(true)}>Show Used Drops</button>
             }
         </div>
     )

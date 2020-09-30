@@ -59,7 +59,7 @@ class Claim extends Component {
     return (
       <div className="App-header">
         <div className="image-wrapper">
-          <img className="logo" src={nearlogo} alt="NEAR logo" height="60" />
+          <img className="logo" src={nearlogo} alt="NEAR logo" height="40" />
         </div>
         <div>
           {secretkey}
