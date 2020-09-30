@@ -316,6 +316,10 @@ a:visited {
   color: #979797;
 }
 
+:focus {
+  outline: none;
+}
+
 h1,
 h2,
 h3,
@@ -2394,7 +2398,7 @@ summary.accordion-header::-webkit-details-marker {
   max-height: 50vh;
   overflow-y: auto;
   position: absolute;
-  top: 100%;
+  top: 90%;
 }
 
 .dropdown.dropdown-right .menu {
@@ -2402,6 +2406,8 @@ summary.accordion-header::-webkit-details-marker {
   right: 0;
 }
 
+.dropdown:focus .menu,
+.dropdown:hover .menu,
 .dropdown.active .menu,
 .dropdown .dropdown-toggle:focus + .menu,
 .dropdown .menu:hover {

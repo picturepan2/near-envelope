@@ -1,8 +1,8 @@
 import 'regenerator-runtime/runtime';
 import React, { Component } from 'react';
-import nearlogo from './assets/gray_near_logo.svg';
-import User from './User';
 import Drops from './Drops';
+import nearlogo from './assets/gray_near_logo.svg';
+import iconUser from './assets/img/icon-account.svg';
 
 class App extends Component {
   constructor(props) {
@@ -68,7 +68,6 @@ class App extends Component {
   }
 
   render() {
-
     const {
       state,
       updateUser
@@ -87,7 +86,25 @@ class App extends Component {
               <img className="logo" src={nearlogo} alt="NEAR logo" height="40" />
             </div>
             <div className="near-user">
-              { currentUser && <User {...{currentUser, updateUser}} />}
+              {this.state.login ? 
+                  <div className="dropdown" tabIndex="0">
+                      <div className="btn">
+                          <img className="btn-icon" src={iconUser} alt="NEAR user" height="40" />
+                          <span className="text-ellipsis">{currentUser.account_id}</span>
+                      </div>
+                      <ul className="menu">
+                          <li className="menu-item">
+                              <a href="#" onClick={this.requestSignOut}>
+                                  Log Out
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+                  : <a className="btn" href="#" onClick={this.requestSignIn}>
+                      <img className="btn-icon" src={iconUser} alt="NEAR user" height="40" />
+                      <span className="text-ellipsis">Log in with NEAR</span>
+                  </a>
+              }
             </div>
           </div>
           <div className="near-dapp-body">
@@ -97,16 +114,9 @@ class App extends Component {
           </div>
           <div className="near-dapp-footer">
             <div className="login">
-              {this.state.login ? 
-                <div>
-                  <button className="btn" onClick={this.requestSignOut}>Log out</button>
-                </div>
-                : <button className="btn" onClick={this.requestSignIn}>Log in with NEAR</button>}
             </div>
           </div>
         </div>
-        
-        
       </div>
     )
   }

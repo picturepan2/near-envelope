@@ -5,7 +5,7 @@ import * as clipboard from "clipboard-polyfill/text";
 import {
     nearTo, nearToInt, toNear, BOATLOAD_OF_GAS, DROP_GAS, NETWORK_ID, ACCESS_KEY_ALLOWANCE
 } from './util/near-util';
-import { howLongAgo } from './util/util';
+// import { howLongAgo } from './util/util';
 
 const get = (k) => JSON.parse(localStorage.getItem(k) || '[]')
 const set = (k, v) => localStorage.setItem(k, JSON.stringify(v))

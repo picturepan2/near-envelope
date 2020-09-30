@@ -87,15 +87,19 @@ body {
     }
 
     .near-user {
+      .dropdown {
+        height: 2rem;
+      }
+      
       .btn {
         max-width: 10rem;
         padding: 0 .5rem 0 0;
 
         &:focus,
         &:hover {
-          .btn-icon {
-            background: $secondary-color;
-          }
+          background: $bg-color-dark;
+          border-color: $border-color-light;
+          color: $gray-color-dark;
         }
       }
 

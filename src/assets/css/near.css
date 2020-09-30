@@ -316,6 +316,10 @@ a:visited {
   color: #979797;
 }
 
+:focus {
+  outline: none;
+}
+
 h1,
 h2,
 h3,
@@ -2394,7 +2398,7 @@ summary.accordion-header::-webkit-details-marker {
   max-height: 50vh;
   overflow-y: auto;
   position: absolute;
-  top: 100%;
+  top: 90%;
 }
 
 .dropdown.dropdown-right .menu {
@@ -2402,6 +2406,8 @@ summary.accordion-header::-webkit-details-marker {
   right: 0;
 }
 
+.dropdown:focus .menu,
+.dropdown:hover .menu,
 .dropdown.active .menu,
 .dropdown .dropdown-toggle:focus + .menu,
 .dropdown .menu:hover {
@@ -3938,14 +3944,20 @@ body {
   height: 2rem;
 }
 
+.near-container .near-dapp-header .near-user .dropdown {
+  height: 2rem;
+}
+
 .near-container .near-dapp-header .near-user .btn {
   max-width: 10rem;
   padding: 0 .5rem 0 0;
 }
 
-.near-container .near-dapp-header .near-user .btn:focus .btn-icon,
-.near-container .near-dapp-header .near-user .btn:hover .btn-icon {
-  background: #fdf2f1;
+.near-container .near-dapp-header .near-user .btn:focus,
+.near-container .near-dapp-header .near-user .btn:hover {
+  background: #f0f0f0;
+  border-color: #eaeaea;
+  color: #7d7d7d;
 }
 
 .near-container .near-dapp-header .near-user .btn-icon {

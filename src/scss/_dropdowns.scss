@@ -10,7 +10,7 @@
     max-height: 50vh;
     overflow-y: auto;
     position: absolute;
-    top: 100%;
+    top: 90%;
   }
 
   &.dropdown-right {
@@ -20,6 +20,8 @@
     }
   }
 
+  &:focus .menu,
+  &:hover .menu,
   &.active .menu,
   .dropdown-toggle:focus + .menu,
   .menu:hover {
