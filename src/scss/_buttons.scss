@@ -90,7 +90,7 @@
     box-shadow: 0 .2rem 1rem rgba(darken($gold-color, 55%), .5);
     color: lighten($gold-color, 15%);
     &:visited {
-      color: $light-color;
+      color: lighten($gold-color, 15%);
     }
     &:focus,
     &:hover,

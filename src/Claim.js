@@ -11,7 +11,7 @@ class Claim extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      status: 0,
+      status: true,
       secretkey: null,
       walletClaimUrl: '',
       amount: 0,
@@ -25,21 +25,22 @@ class Claim extends Component {
     } = window.nearConfig
 
     if (this.props.match.params) {
+      const secretkey = this.props.match.params.key
+      let status = true,
+          amount = 0,
+          walletClaimUrl = ''
       try {
-        const secretkey = this.props.match.params.key
-        let amount = 0,
-            walletClaimUrl = ''
         walletClaimUrl = await this.getWalletLink(secretkey)
         amount = await this.checkNearDropBalance(contractName, secretkey)
-        this.setState({ secretkey, walletClaimUrl, amount })
-        console.log(contractName, secretkey, walletClaimUrl, amount)
-        
+        this.setState({ status, secretkey, walletClaimUrl, amount })
+        console.log(status, contractName, secretkey, walletClaimUrl, amount)
       } catch (err) {
+        status = false
+        this.setState({ status })
         console.log(err)
       }
     }
   }
-
 
   async checkNearDropBalance(fundingContract, fundingKey) {
     const account = this.getAccount(fundingContract)
@@ -82,10 +83,18 @@ class Claim extends Component {
                 <div className="h2">中秋快乐</div></div>
               <div className="redenvelope-card-body">
                 <div className="">金额</div>
-                <div className="h1">{nearTo(amount, 2)}<small>Ⓝ</small></div>
+                { status ?
+                  <div className="h1">{nearTo(amount, 2)}<small>Ⓝ</small></div>
+                  :
+                  <div className="h1">已被领取</div>
+                }
               </div>
               <div className="redenvelope-card-footer">
-                <a className="btn btn-gold btn-block btn-lg" href={walletClaimUrl} target="_blank">注册并领取 NEAR</a>
+                { status && walletClaimUrl ?
+                  <a className="btn btn-gold btn-block btn-lg" href={walletClaimUrl} target="_blank">注册并领取 NEAR</a>
+                  :
+                  <a className="btn btn-gold btn-block btn-lg disabled" href="#">无法领取 NEAR</a>
+                }
               </div>
             </div>
           </div>
