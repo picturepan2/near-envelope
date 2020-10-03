@@ -4004,7 +4004,7 @@ body {
   width: 8rem;
 }
 
-.near-container .near-dapp-redenvelope {
+.near-container .near-dapp-redpacket {
   background: #e03c36;
   border: .1rem solid #ae201b;
   border-radius: .8rem;
@@ -4014,7 +4014,7 @@ body {
   padding: 0;
 }
 
-.near-container .near-dapp-redenvelope .near-redenvelope-header {
+.near-container .near-dapp-redpacket .near-redpacket-header {
   -webkit-animation: re-slide-up 2.5s ease-in-out 1;
   animation: re-slide-up 2.5s ease-in-out 1;
   background: linear-gradient(to bottom, #e03c36 5%, #da2822 100%);
@@ -4025,8 +4025,8 @@ body {
   z-index: 999;
 }
 
-.near-container .near-dapp-redenvelope .near-redenvelope-header::after,
-.near-container .near-dapp-redenvelope .near-redenvelope-header::before {
+.near-container .near-dapp-redpacket .near-redpacket-header::after,
+.near-container .near-dapp-redpacket .near-redpacket-header::before {
   border-color: #da2822 transparent transparent transparent;
   border-radius: 20px;
   border-style: solid;
@@ -4042,20 +4042,20 @@ body {
   z-index: 99;
 }
 
-.near-container .near-dapp-redenvelope .near-redenvelope-header::before {
+.near-container .near-dapp-redpacket .near-redpacket-header::before {
   border-top-color: #ae201b;
   transform: translate(-50%, .1rem);
   z-index: 99;
 }
 
-.near-container .near-dapp-redenvelope .near-redenvelope-header .redenvelope-cover {
+.near-container .near-dapp-redpacket .near-redpacket-header .redpacket-cover {
   display: block;
   height: 50vh;
   margin: 1rem auto;
   width: auto;
 }
 
-.near-container .near-dapp-redenvelope .near-redenvelope-header .redenvelope-btn {
+.near-container .near-dapp-redpacket .near-redpacket-header .redpacket-btn {
   align-items: center;
   -webkit-animation: re-flip-btn 2.5s ease-in-out 1;
   animation: re-flip-btn 2.5s ease-in-out 1;
@@ -4080,7 +4080,7 @@ body {
   z-index: 999;
 }
 
-.near-container .near-dapp-redenvelope .near-redenvelope-header .redenvelope-btn::after {
+.near-container .near-dapp-redpacket .near-redpacket-header .redpacket-btn::after {
   border: .1rem solid rgba(36, 36, 36, .05);
   border-radius: 50%;
   content: "";
@@ -4093,13 +4093,13 @@ body {
   width: 4.4rem;
 }
 
-.near-container .near-dapp-redenvelope .near-redenvelope-body {
+.near-container .near-dapp-redpacket .near-redpacket-body {
   background: #e03c36;
   height: 35vh;
   position: relative;
 }
 
-.near-container .near-dapp-redenvelope .near-redenvelope-body .redenvelope-content {
+.near-container .near-dapp-redpacket .near-redpacket-body .redpacket-content {
   bottom: 1.5rem;
   color: #ecc27f;
   display: flex;
@@ -4112,14 +4112,14 @@ body {
   width: 100%;
 }
 
-.near-container .near-dapp-redenvelope .near-redenvelope-body .redenvelope-content .redenvelope-content-title {
+.near-container .near-dapp-redpacket .near-redpacket-body .redpacket-content .redpacket-content-title {
   font-size: 1.6rem;
   font-weight: 700;
   line-height: 1.8rem;
   margin-bottom: .5rem;
 }
 
-.near-container .near-dapp-redenvelope .near-redenvelope-body .redenvelope-card {
+.near-container .near-dapp-redpacket .near-redpacket-body .redpacket-card {
   -webkit-animation: re-slide-down 2.5s ease-in-out 1;
   animation: re-slide-down 2.5s ease-in-out 1;
   background: linear-gradient(to bottom, #eabb71 0, #e7b15b 100%);
@@ -4140,7 +4140,7 @@ body {
   z-index: 99;
 }
 
-.near-container .near-dapp-redenvelope .near-redenvelope-body .redenvelope-card::after {
+.near-container .near-dapp-redpacket .near-redpacket-body .redpacket-card::after {
   border: .1rem solid rgba(36, 36, 36, .05);
   border-radius: .6rem;
   content: "";
@@ -4153,7 +4153,7 @@ body {
   width: calc(100% - .6rem);
 }
 
-.near-container .near-dapp-redenvelope .near-redenvelope-body .redenvelope-card .redenvelope-cover {
+.near-container .near-dapp-redpacket .near-redpacket-body .redpacket-card .redpacket-cover {
   display: block;
   height: 50vh;
   left: 50%;
@@ -4166,11 +4166,11 @@ body {
   z-index: -1;
 }
 
-.near-container .near-dapp-redenvelope .near-redenvelope-body .redenvelope-card .redenvelope-card-header {
+.near-container .near-dapp-redpacket .near-redpacket-body .redpacket-card .redpacket-card-header {
   flex: 0 0 1rem;
 }
 
-.near-container .near-dapp-redenvelope .near-redenvelope-body .redenvelope-card .redenvelope-card-body {
+.near-container .near-dapp-redpacket .near-redpacket-body .redpacket-card .redpacket-card-body {
   align-items: center;
   display: flex;
   flex: 1 1 auto;
@@ -4178,7 +4178,7 @@ body {
   justify-content: center;
 }
 
-.near-container .near-dapp-redenvelope .near-redenvelope-body .redenvelope-card .redenvelope-card-footer {
+.near-container .near-dapp-redpacket .near-redpacket-body .redpacket-card .redpacket-card-footer {
   align-items: center;
   display: flex;
   flex: 0 0 1rem;
@@ -4186,7 +4186,7 @@ body {
   margin-top: 2rem;
 }
 
-.near-container .near-dapp-redenvelope .near-redenvelope-body .redenvelope-card .redenvelope-card-footer .btn {
+.near-container .near-dapp-redpacket .near-redpacket-body .redpacket-card .redpacket-card-footer .btn {
   position: relative;
   z-index: 999;
 }

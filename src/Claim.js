@@ -5,7 +5,7 @@ import { KeyPair } from 'near-api-js';
 import {
   nearTo, nearToInt, toNear, BOATLOAD_OF_GAS, DROP_GAS, NETWORK_ID, ACCESS_KEY_ALLOWANCE
 } from './util/near-util';
-import nearcover from './assets/img/redenvelope-cover.svg';
+import nearcover from './assets/img/redpacket-cover.svg';
 
 class Claim extends Component {
   constructor(props) {
@@ -67,21 +67,21 @@ class Claim extends Component {
     
     return (
       <div className="near-container">
-        <div className="near-dapp near-dapp-redenvelope">
-          <div className="near-redenvelope-header">
-            <img className="redenvelope-cover" src={nearcover} alt="红包封面图" />
-            <button className="redenvelope-btn">拆封</button>
+        <div className="near-dapp near-dapp-redpacket">
+          <div className="near-redpacket-header">
+            <img className="redpacket-cover" src={nearcover} alt="红包封面图" />
+            <button className="redpacket-btn">拆封</button>
           </div>
-          <div className="near-redenvelope-body">
-            <div className="redenvelope-content">
-              <div className="redenvelope-content-title">中秋快乐</div>
-              <div className="redenvelope-content-subtitle">来自 NEAR 团队的祝福</div>
+          <div className="near-redpacket-body">
+            <div className="redpacket-content">
+              <div className="redpacket-content-title">中秋快乐</div>
+              <div className="redpacket-content-subtitle">来自 NEAR 团队的祝福</div>
             </div>
-            <div className="redenvelope-card">
-              <img className="redenvelope-cover" src={nearcover} alt="红包封面图" />
-              <div className="redenvelope-card-header">
+            <div className="redpacket-card">
+              <img className="redpacket-cover" src={nearcover} alt="红包封面图" />
+              <div className="redpacket-card-header">
                 <div className="h2">中秋快乐</div></div>
-              <div className="redenvelope-card-body">
+              <div className="redpacket-card-body">
                 <div className="">金额</div>
                 { status ?
                   <div className="h1">{nearTo(amount, 2)}<small>Ⓝ</small></div>
@@ -89,7 +89,7 @@ class Claim extends Component {
                   <div className="h1">已被领取</div>
                 }
               </div>
-              <div className="redenvelope-card-footer">
+              <div className="redpacket-card-footer">
                 { status && walletClaimUrl ?
                   <a className="btn btn-gold btn-block btn-lg" href={walletClaimUrl} target="_blank">注册并领取 NEAR</a>
                   :
