@@ -83,13 +83,33 @@
     }
   }
 
-  // Button Colors
-  &.btn-success {
-    @include button-variant($success-color);
-  }
-
-  &.btn-error {
-    @include button-variant($error-color);
+  // Button Gold
+  &.btn-gold {
+    background: darken($gold-color, 55%);
+    border-color: darken($gold-color, 58%);
+    box-shadow: 0 .2rem 1rem rgba(darken($gold-color, 55%), .5);
+    color: lighten($gold-color, 15%);
+    &:visited {
+      color: $light-color;
+    }
+    &:focus,
+    &:hover {
+      background: darken($primary-color-dark, 2%);
+      border-color: darken($primary-color-dark, 5%);
+      color: $light-color;
+    }
+    &:active,
+    &.active {
+      background: darken($primary-color-dark, 4%);
+      border-color: darken($primary-color-dark, 7%);
+      color: $light-color;
+    }
+    &.loading {
+      &::after {
+        border-bottom-color: $light-color;
+        border-left-color: $light-color;
+      }
+    }
   }
 
   // Button Link
@@ -115,7 +135,6 @@
   }
 
   &.btn-lg {
-    font-size: $font-size-lg;
     height: $control-size-lg;
     padding: $control-padding-y-lg $control-padding-x-lg;
   }

@@ -64,7 +64,7 @@ body {
 
   .near-dapp {
     background: $light-color;
-    border: $border-color;
+    border: .1rem solid rgba($dark-color, .1);
     border-radius: $border-radius;
     box-shadow: 0 .2rem 1rem rgba($dark-color, .05);
     display: flex;
@@ -78,21 +78,21 @@ body {
 
   .near-dapp-header {
     display: flex;
-    height: 3rem;
+    height: 2.6rem;
     justify-content: space-between;
     padding: .5rem 1rem;
 
     .near-logo {
-      height: 2rem;
+      height: 1.6rem;
     }
 
     .near-user {
       .dropdown {
         height: 2rem;
       }
-      
+
       .btn {
-        max-width: 10rem;
+        max-width: 40vw;
         padding: 0 .5rem 0 0;
 
         &:focus,
@@ -185,6 +185,189 @@ body {
       text-transform: uppercase;
       transform: rotate(45deg);
       width: 8rem;
+    }
+  }
+
+  .near-dapp-redenvelope {
+    background: darken($primary-color, 5%);
+    border: .1rem solid darken($primary-color, 20%);
+    box-shadow: 0 .1rem 1rem rgba($primary-color, .75);
+    border-radius: .8rem;
+    max-width: 18.75rem;
+    overflow: hidden;
+    padding: 0;
+
+    .near-redenvelope-header {
+      background: linear-gradient(to bottom, darken($primary-color, 5%) 5%, darken($primary-color, 10%) 100%);
+      flex: 1 1 65vh;
+      height: 65vh;
+      position: relative;
+
+      &::after,
+      &::before {
+        border-color: darken($primary-color, 10%) transparent transparent transparent;
+        border-radius: 20px;
+        border-style: solid;
+        border-width: 2rem 20rem 0 20rem;
+        content: '';
+        display: block;
+        height: 2rem;
+        left: 50%;
+        position: absolute;
+        top: 100%;
+        transform: translate(-50%, 0);
+        width: 100%;
+        z-index: 99;
+      }
+
+      &::before {
+        border-top-color: darken($primary-color, 20%);
+        transform: translate(-50%, .1rem);
+        z-index: 99;
+      }
+
+      .redenvelope-cover {
+        display: block;
+        height: 50vh;
+        margin: 1rem auto;
+        width: auto;
+      }
+  
+      .redenvelope-card {
+        background: linear-gradient(to bottom, darken($gold-color-dark, 3%) 0, darken($gold-color-dark, 8%) 100%);
+        border: .1rem solid rgba($dark-color, .15);
+        border-radius: .6rem;
+        color: darken($gold-color, 55%);
+        display: none;
+        flex-direction: column;
+        height: 75vh;
+        left: 50%;
+        padding: 6rem 2rem 2rem 2rem;
+        position: absolute;
+        text-align: center;
+        text-shadow: 0 .2rem .5rem rgba($dark-color, .15);
+        top: 100%;
+        transform: translate(-50%, .5rem);
+        width: 70%;
+
+        &::after {
+          border: .1rem solid rgba($dark-color, .05);
+          border-radius: .6rem;
+          content: '';
+          display: block;
+          flex: 0 0 4rem;
+          height: calc(75vh - .8rem);
+          left: .3rem;
+          position: absolute;
+          top: .3rem;
+          width: calc(100% - .6rem);
+        }
+
+        .redenvelope-cover {
+          left: 50%;
+          opacity: .5;
+          position: absolute;
+          top: 40%;
+          transform: translate(-50%, -50%);
+          z-index: -1;
+        }
+
+        .redenvelope-card-header {
+          flex: 0 0 1rem;
+        }
+
+        .redenvelope-card-body {
+          align-items: center;
+          display: flex;
+          flex: 1 1 auto;
+          flex-direction: column;
+          justify-content: center;
+        }
+
+        .redenvelope-card-footer {
+          align-items: center;
+          display: flex;
+          flex: 0 0 1rem;
+          justify-content: center;
+          margin-top: 2rem;
+        }
+      }
+  
+      .redenvelope-btn {
+        align-items: center;
+        background: linear-gradient(45deg, lighten($gold-color, 3%) 0, darken($gold-color-dark, 5%) 100%);
+        border: .1rem solid rgba($dark-color, .1);
+        border-radius: 50%;
+        bottom: -4.5rem;
+        box-shadow: 0 .2rem 1rem rgba($dark-color, .25);
+        color: rgba($dark-color, .75);
+        display: flex;
+        font-size: 1.2rem;
+        font-weight: 700;
+        height: 5rem;
+        justify-content: center;
+        left: calc(50% - 2.5rem);
+        position: absolute;
+        user-select: none;
+        width: 5rem;
+        z-index: 999;
+  
+        &::after {
+          border: .1rem solid rgba($dark-color, .05);
+          border-radius: 50%;
+          content: '';
+          display: block;
+          flex: 0 0 4rem;
+          height: 4.4rem;
+          left: .2rem;
+          position: absolute;
+          top: .2rem;
+          width: 4.4rem;
+        }
+      }
+    }
+
+    .near-redenvelope-body {
+      background: darken($primary-color, 5%);
+      height: 35vh;
+
+      .redenvelope-content {
+        color: $gold-color-dark;
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        padding-top: 2rem;
+        text-align: center;
+        text-shadow: 0 .2rem .5rem rgba($dark-color, .15);
+  
+        .redenvelope-content-title {
+          font-size: 1.6rem;
+          font-weight: 700;
+          line-height: 1.8rem;
+          margin-bottom: .5rem;
+        }
+      }
+    }
+
+    &.active {
+      .near-redenvelope-header {
+        transform: translateY(-55vh);
+
+        .redenvelope-btn {
+          display: none;
+        }
+
+        .redenvelope-card {
+          display: flex;
+        }
+      }
+
+      .near-redenvelope-body {
+        .redenvelope-content {
+          display: none;
+        }
+      }
     }
   }
 }

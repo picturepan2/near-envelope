@@ -5,7 +5,7 @@ import { KeyPair } from 'near-api-js';
 import {
   nearTo, nearToInt, toNear, BOATLOAD_OF_GAS, DROP_GAS, NETWORK_ID, ACCESS_KEY_ALLOWANCE
 } from './util/near-util';
-import nearlogo from './assets/gray_near_logo.svg';
+import nearcover from './assets/img/redenvelope-cover.svg';
 
 class Claim extends Component {
   constructor(props) {
@@ -57,14 +57,30 @@ class Claim extends Component {
     const { secretkey, amount } = this.state;
     
     return (
-      <div className="App-header">
-        <div className="image-wrapper">
-          <img className="logo" src={nearlogo} alt="NEAR logo" height="40" />
-        </div>
-        <div>
-          {secretkey}
-          <br/>
-          {nearTo(amount, 2)} Ⓝ
+      <div className="near-container">
+        <div className="near-dapp near-dapp-redenvelope active">
+          <div className="near-redenvelope-header">
+            <img className="redenvelope-cover" src={nearcover} alt="红包封面图" />
+            <button className="redenvelope-btn">拆封</button>
+            <div className="redenvelope-card">
+              <img className="redenvelope-cover" src={nearcover} alt="红包封面图" />
+              <div className="redenvelope-card-header">
+                <div className="h2">中秋快乐</div></div>
+              <div className="redenvelope-card-body">
+                <div className="">金额</div>
+                <div className="h1">{nearTo(amount, 2)}<small>Ⓝ</small></div>
+              </div>
+              <div className="redenvelope-card-footer">
+                <button className="btn btn-gold btn-block btn-lg">注册并领取 NEAR</button>
+              </div>
+            </div>
+          </div>
+          <div className="near-redenvelope-body">
+            <div className="redenvelope-content">
+              <div className="redenvelope-content-title">中秋快乐</div>
+              <div className="redenvelope-content-subtitle">来自 NEAR 团队的祝福</div>
+            </div>
+          </div>
         </div>
       </div>
     )

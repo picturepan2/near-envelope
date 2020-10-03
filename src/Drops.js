@@ -235,8 +235,8 @@ const Drops = (props) => {
                             <div className="drop-item-pubkey text-ellipsis text-gray">Public Key: {public_key}</div>
                             <button className="btn btn-sm btn-primary" onClick={async () => {
                                 await clipboard.writeText(walletLink)
-                                alert('NEAR 红包链接已经复制到剪贴板')
-                            }}>Copy Link</button>
+                                alert('NEAR 红包 🧧 链接已复制')
+                            }}>Share Link</button>
                             <button className="btn btn-sm btn-link" onClick={() => reclaimDrop(public_key)}>Use Drop</button>
                         </div>)
                     }
@@ -256,7 +256,7 @@ const Drops = (props) => {
                                 <button className="btn btn-sm btn-primary" onClick={async () => {
                                     await clipboard.writeText(walletLink)
                                     alert('Near Wallet link copied to clipboard')
-                                }}>Copy Link</button>
+                                }}>Share Link</button>
                                 <button className="btn btn-sm btn-link" onClick={() => removeDrop(public_key)}>Remove Drop</button>
                             </div>)
                         }

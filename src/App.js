@@ -1,7 +1,7 @@
 import 'regenerator-runtime/runtime';
 import React, { Component } from 'react';
 import Drops from './Drops';
-import nearlogo from './assets/gray_near_logo.svg';
+import nearlogo from './assets/near-logo.svg';
 import iconUser from './assets/img/icon-account.svg';
 
 class App extends Component {
@@ -83,7 +83,7 @@ class App extends Component {
         <div className="near-dapp">
           <div className="near-dapp-header">
             <div className="near-logo">
-              <img className="logo" src={nearlogo} alt="NEAR logo" height="40" />
+              <img className="near-logo" src={nearlogo} alt="NEAR logo" height="32" />
             </div>
             <div className="near-user">
               {this.state.login ? 
@@ -110,10 +110,6 @@ class App extends Component {
           <div className="near-dapp-body">
             <div>
               { currentUser && <Drops {...{currentUser, updateUser}} />}
-            </div>
-          </div>
-          <div className="near-dapp-footer">
-            <div className="login">
             </div>
           </div>
         </div>
