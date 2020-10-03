@@ -93,22 +93,12 @@
       color: $light-color;
     }
     &:focus,
-    &:hover {
-      background: darken($primary-color-dark, 2%);
-      border-color: darken($primary-color-dark, 5%);
-      color: $light-color;
-    }
+    &:hover,
     &:active,
     &.active {
-      background: darken($primary-color-dark, 4%);
-      border-color: darken($primary-color-dark, 7%);
-      color: $light-color;
-    }
-    &.loading {
-      &::after {
-        border-bottom-color: $light-color;
-        border-left-color: $light-color;
-      }
+      background: darken($gold-color, 58%);
+      border-color: darken($gold-color, 61%);
+      color: lighten($gold-color, 15%);
     }
   }
 

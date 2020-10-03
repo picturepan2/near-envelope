@@ -661,22 +661,12 @@ html:lang(ko),
 }
 
 .btn.btn-gold:focus,
-.btn.btn-gold:hover {
-  background: #e03c36;
-  border-color: #dd2f29;
-  color: #fff;
-}
-
+.btn.btn-gold:hover,
 .btn.btn-gold:active,
 .btn.btn-gold.active {
-  background: #de332d;
-  border-color: #da2822;
-  color: #fff;
-}
-
-.btn.btn-gold.loading::after {
-  border-bottom-color: #fff;
-  border-left-color: #fff;
+  background: #48300b;
+  border-color: #3a2709;
+  color: #f8e8cf;
 }
 
 .btn.btn-link {
